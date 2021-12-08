@@ -1,24 +1,33 @@
 
 
-function drawtriangle(x,y,angle) {
-    let rotatedpoint = rotatepoint(0,0,angle)
-    let firstpointX = x+rotatedpoint[0];
-    let firstpointY = y+rotatedpoint[1];
-    rotatedpoint = rotatepoint(100,0,angle)
-    let secondpointX = x+rotatedpoint[0]
-    let secondpointY = y+rotatedpoint[1]
-    rotatedpoint = rotatepoint(50,100*sin(pi/3),angle)
-    let thirdpointX = x+rotatedpoint[0]
-    let thirdpointY = y+rotatedpoint[1]
-    context.beginPath();
-    context.moveTo(firstPointX, firstpointY);
-    context.lineTo(secondpointX, secondpointY);
-    context.lineTo(thirdpointX, thirdpointY - height);
-    context.closePath()
-}
+/*window.onload = function () {
+    var img = new Image();
+    img.src = 'pictures/triangles.png';
+        img.onload = function () {
+            fill_canvas(img);
+        }
+            function fill_canvas(img) {
+                var canvas = document.getElementById('shapes');
+                var ctx = canvas.getContext('2d');
+                canvas.width = img.width;
+                canvas.height = img.height;
+    
+                ctx.drawImage(img, 0, 0);
+        }
+    }
+     */
 
-function rotatepoint(x,y,angle) {
-    let newX = x*cos(angle)-y*sin(angle);
-    let newY = x*sin(angle)-y*cos(angle);
-    return [newX,newY];
+    var canvas = document.getElementById('shapes'),
+context = canvas.getContext('2d');
+
+make_base();
+
+function make_base()
+{
+  base_image = new Image();
+  base_image.src = 'pictures/triangles.png';
+  base_image.onload = function(){
+    context.drawImage(base_image, 0, 0,);
+    context.drawImage(base_image, 50, 0,);
+  }
 }
